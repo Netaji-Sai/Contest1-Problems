@@ -1,0 +1,17 @@
+class Solution
+{
+    public static int count(Node head, int key)
+    {
+        //code here
+        int c = 0;
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                c++;
+            }
+            current = current.next;
+        }
+        
+        return c;
+    }
+}

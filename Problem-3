@@ -1,0 +1,16 @@
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int[] c = new int[2];
+        for (int s : students) {
+            c[s]++;
+        }
+        for (int sd : sandwiches) {
+            if (c[sd] == 0) {
+                break;
+            }
+            c[sd]--;
+        }
+
+        return c[0] + c[1];
+    }
+}

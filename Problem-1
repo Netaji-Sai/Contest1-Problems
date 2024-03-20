@@ -1,0 +1,41 @@
+class MyQueue {
+    private Stack<Integer> enqueueStack;
+    private Stack<Integer> dequeueStack;
+
+    public MyQueue() {
+        enqueueStack = new Stack<>();
+        dequeueStack = new Stack<>();
+        
+    }
+    
+    public void push(int x) {
+        enqueueStack.push(x);
+        
+    }
+    
+    public int pop() {
+        if (dequeueStack.isEmpty()) {
+            transferElements();
+        }
+        return dequeueStack.pop();
+        
+    }
+    
+    public int peek() {
+        if (dequeueStack.isEmpty()) {
+            transferElements();
+        }
+        return dequeueStack.peek();
+        
+    }
+    
+    public boolean empty() {
+        return enqueueStack.isEmpty() && dequeueStack.isEmpty();
+        
+    }
+    private void transferElements() {
+        while (!enqueueStack.isEmpty()) {
+            dequeueStack.push(enqueueStack.pop());
+        }
+    }
+}
